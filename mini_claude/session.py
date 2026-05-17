@@ -6,7 +6,7 @@ import json
 from pathlib import Path
 from typing import Any
 
-SESSION_DIR = Path.home() / ".mini-claude" / "sessions"
+SESSION_DIR = Path.cwd() / ".mini-claude" / "sessions"
 
 
 def _ensure_dir() -> None:

@@ -666,7 +666,7 @@ class Agent:
         THRESHOLD = 30 * 1024  # 30 KB
         if len(result.encode()) <= THRESHOLD:
             return result
-        d = Path.home() / ".mini-claude" / "tool-results"
+        d = Path.cwd() / ".mini-claude" / "tool-results"
         d.mkdir(parents=True, exist_ok=True)
         filename = f"{int(time.time() * 1000)}-{tool_name}.txt"
         filepath = d / filename
@@ -735,7 +735,7 @@ class Agent:
     # ─── Plan mode helpers ──────────────────────────────────────
 
     def _generate_plan_file_path(self) -> str:
-        d = Path.home() / ".claude" / "plans"
+        d = Path.cwd() / ".mini-claude" / "plans"
         d.mkdir(parents=True, exist_ok=True)
         return str(d / f"plan-{self.session_id}.md")
 

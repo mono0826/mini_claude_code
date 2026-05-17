@@ -122,7 +122,7 @@ def _resolve_includes(
     def _replace(m: _re.Match) -> str:
         raw = m.group(1)
         if raw.startswith("~/"):
-            resolved = Path.home() / raw[2:]
+            resolved = Path.cwd() / raw[2:]
         elif raw.startswith("/"):
             resolved = Path(raw)
         else:
